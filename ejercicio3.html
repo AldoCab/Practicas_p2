@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+        function numeros(e) {
+            var tam = document.getElementById('telefono');
+            var key = window.Event ? e.which : e.keyCode;
+            var texto = document.getElementById("txt");
+            texto.innerHTML = "Key: " + event.which;
+            if (tam.value.length < 18) {
+                return (key >= 48 && key <= 57 || key ==40 || key == 41 || key == 45 || key == 43);
+            } else { return (key == 0); }
+        }
+
+        function letras(e) {
+
+            var key = window.Event ? e.which : e.keyCode;
+            var texto = document.getElementById("txt");
+            texto.innerHTML = "Key: " + event.which;
+            return (key >= 97 && key <= 122 || key >= 65 && key <= 90 || key == 241 || key == 209 || key == 32);
+
+        }
+
+        function fecha(e) {
+            var key = window.Event ? e.which : e.keyCode;
+            var texto = document.getElementById("txt");
+            texto.innerHTML = "Key: " + event.which;
+
+            var fech = document.getElementById('fecha');
+            if (fech.value.length < 10) {
+                if (fech.value.length == 2 || fech.value.length == 5) {
+                    fech.value = fech.value + '/';
+                }
+                return (key >= 48 && key <= 57);
+
+            } else { return (key == 0); }
+
+        }
+
+        function altura(e) {
+            var key = window.Event ? e.which : e.keyCode;
+            var texto = document.getElementById("txt");
+            texto.innerHTML = "Key: " + event.which;
+            var alt = document.getElementById('altura');
+            if (alt.value.length <4) {
+                if (alt.value.length == 2) {
+                    alt.value = alt.value + '.';
+                }
+                return (key >= 48 && key <= 57);
+
+            } else { return (key == 0); }
+
+        }
+
+
+
+
+    </script>
+</head>
+
+<body>
+
+    <table>
+        <tr>
+            <td>Nombre: </td>
+            <td>
+                <input type="text" value="" id="nombre" onkeypress="return letras(event);">
+            </td>
+        </tr>
+        <tr>
+            <td> Telefono:</td>
+            <td>
+                <input type="text" id="telefono" onkeypress="return numeros(event);">
+            </td>
+        </tr>
+        <tr>
+            <td>Altura:</td>
+            <td>
+                <input type="text" id="altura" onkeypress="return altura(event);">
+            </td>
+        </tr>
+        <tr>
+            <td> Fecha de nacimiento:</td>
+            <td>
+                <input type="text" id="fecha" onkeypress="return fecha(event);">
+            </td>
+        </tr>
+    </table>
+
+    <p id="txt"></p>
+
+</body>
+
+</html>

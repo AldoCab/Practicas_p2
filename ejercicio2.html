@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <script>
+        var x = '00';
+        var y='00';
+        var z='00';
+        function obtenerPosicion(id,e) {
+           var color= document.getElementsByClassName('rgb');
+           
+         
+         
+            if(id =='r'){
+                x = e.clientX;
+                console.log(x);
+                 x = '00' + x.toString(16);
+                 x= x[x.length - 2] + x[x.length - 1];
+            }else if(id =='g'){
+                y = e.clientX;
+                 y = '00' + y.toString(16);
+                 y = y[y.length - 2] + y[y.length - 1];
+            }else{
+                z= e.clientX;
+                z = '00' + z.toString(16);
+                z= z[z.length - 2] + z[z.length - 1];
+            }
+            
+           
+            
+           
+           
+           
+            
+           
+            
+            var relleno = "#" + x + y +z;
+            cursor = "El cursor del mouse esta: " + x + " - " + y + " - " +z ;
+            console.log(relleno);
+            document.getElementById("displayArea").innerHTML = cursor;
+            document.getElementById("focusArea").style.backgroundColor = relleno;
+
+        }
+
+        function detener() {
+           // document.getElementById("focusArea").style.backgroundColor = 'white';
+        }
+    </script>
+
+    <style>
+        .div {
+            border: 1px solid black;
+
+            width: 246px;
+            height: 246px;
+        }
+
+        div div {
+            border: 1px solid black;
+            width: 254px;
+            height: 20px;
+        }
+        body{
+            margin: 0%;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="focusArea" onmouseout="detener()" class="div">
+        <p>Mueve el cursor encima del texto</p>
+        
+    </div>
+    <p id="displayArea"></p>
+    <div >
+        <div id="r" onmousemove="obtenerPosicion(this.id,event)"></div>
+        <div id="g" onmousemove="obtenerPosicion(this.id,event)"></div>
+        <div id="b" onmousemove="obtenerPosicion(this.id,event)"></div>
+    </div>
+
+</body>
+
+</html>

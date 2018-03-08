@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script type="text/javascript">
+       
+		function lista(obj){
+			var imagen = obj.style.backgroundImage;
+			
+			var fila = document.createElement('li');
+			var celda1 = document.createElement('td');
+			var celda2 = document.createElement('td');
+			
+			celda1.style.backgroundImage=imagen;
+			celda2.setAttribute("onclick","eliminarElem(this);");
+			celda2.style.backgroundImage="url('img/x.png')";
+			
+			fila.appendChild(celda1);
+			fila.appendChild(celda2);			
+			var lista = document.getElementById('lista');
+			lista.appendChild(fila);
+		}       
+		
+		  function eliminarElem(obj){
+            var padre=obj.parentNode;
+            padre.parentNode.removeChild(padre);
+        }
+    
+    </script>
+    <style>
+        td{
+            width:100px;
+            height: 100px;
+            background-color:white;
+        }
+		
+		li{
+			width:300px;
+            height: 100px;
+		}
+    </style>
+</head>
+<body >
+    <table >
+        <tr>
+            <td style=" background-image: url('img/manzana.png'); " onClick="lista(this)"></td>
+            <td style=" background-image: url('img/fresa.png'); " onClick="lista(this)"></td>
+            <td style=" background-image: url('img/naranja.png'); " onClick="lista(this)"></td>
+        </tr>
+    </table>
+	
+    
+	<div>
+	<nav>
+		<ul id="lista">
+			<h2>Lista de frutas</h2>
+		</ul>	
+		</nav>
+	</div>
+</body>
+</html>
